@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Runqi (Roger) Pan</title>
+<meta name="description" content="Runqi (Roger) Pan, MEng Biomedical Engineering, Imperial College London. Brain state, stimulation, nonlinear dynamics and brain–computer interfaces.">
+<link rel="icon" href="img/photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{color-scheme:light}
+/* Layout: scholarly two-column. Fixed identity column on the left, a single readable text column on the right, figure thumbnails beside papers. */
+:root{
+  --bg:#fbfbf9; --fg:#1e2430; --muted:#646b78; --line:#e3e2dc; --accent:#8a2b2b; --thumb:#f0efe9;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15.5px;line-height:1.6}
+.page{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:72px;padding-block:72px 80px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 48px);align-self:start;display:flex;flex-direction:column;gap:18px}
+.photo{width:132px;aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--thumb);border:1px solid var(--line);display:block;object-fit:cover}
+.name{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.15;margin:0;letter-spacing:-.01em}
+.name small{display:block;font-size:16px;color:var(--muted);font-weight:400;margin-top:4px}
+.role{margin:0;color:var(--muted);font-size:14px}
+.side-links{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.side-links a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+.side-links a:hover{color:var(--accent);border-color:var(--accent)}
+.side-links .ph{color:var(--muted)}
+.mail{display:flex;flex-direction:column;gap:3px;font-size:13.5px;line-height:1.5}
+.mail .lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mail .addr{user-select:all;overflow-wrap:anywhere}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main{min-width:0;max-width:640px}
+.intro{font-family:var(--serif);font-size:23px;line-height:1.45;margin:0 0 8px}
+.intro em{color:var(--accent)}
+h2{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:56px 0 18px}
+p{margin:0 0 14px}
+.intro{margin-bottom:22px !important}
+.lead-in{margin-bottom:6px}
+.dirs{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.dirs li::marker{color:var(--accent)}
+.paper{display:grid;grid-template-columns:120px minmax(0,1fr);gap:22px;padding:18px 0;border-top:1px solid var(--line)}
+.paper:last-child{border-bottom:1px solid var(--line)}
+.fig{background:var(--thumb);border-radius:6px;aspect-ratio:4/3;max-width:100%;display:block}
+.paper .t{font-family:var(--serif);font-size:18px;line-height:1.35;font-weight:500}
+.paper .a{font-size:14px;color:var(--muted);margin-top:4px}
+.paper .v{font-size:13px;margin-top:6px}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:1px 6px;margin-right:6px}
+.cv{display:grid;grid-template-columns:100px minmax(0,1fr);row-gap:16px;column-gap:16px;font-size:15px}
+.cv dt{color:var(--muted);font-variant-numeric:tabular-nums}
+.cv dd{margin:0}
+.cv dd b{font-weight:600}
+.cv .sub{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.cv + h2{margin-top:44px}
+.note{font-size:12px;color:var(--muted);margin-top:56px}
+@media (max-width:780px){
+  .page{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:40px 56px}
+  aside{position:static}
+  .paper{grid-template-columns:84px minmax(0,1fr);gap:14px}
+}
+.dyn{margin:34px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0 14px}
+.dyn canvas{display:block;width:100%;height:220px}
+.dyn figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.dyn figcaption i{font-family:var(--serif);font-size:14px}
+@media (max-width:780px){.dyn canvas{height:180px}}
+</style>
+
+</head>
+<body>
+<div class="page">
+  <!-- ===== Sidebar: photo, name, links, email ===== -->
+  <aside>
+    <img class="photo" src="img/photo.jpg" alt="Portrait of Runqi (Roger) Pan" width="132" height="132">
+    <h1 class="name">Runqi Pan<small>Roger</small></h1>
+    <p class="role">MEng Biomedical Engineering<br>Imperial College London</p>
+    <ul class="side-links">
+      <li><a href="https://github.com/rogerpan0229" target="_blank" rel="noopener">GitHub</a></li>
+      <li class="ph">Preprint (soon)</li>
+      <li><a href="https://scholar.google.co.uk/citations?user=a8JQdcYAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a href="cv/Runqi_Pan_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+    </ul>
+    <div class="mail">
+      <span class="lbl">Email</span>
+      <span class="addr">runqi.pan22@imperial.ac.uk</span>
+      <span class="addr">rogen88915305@163.com</span>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ===== Intro: edit the text below ===== -->
+    <p class="intro">How does the brain's <em>ongoing state</em> shape its response to the world? I approach this question through intracranial stimulation, nonlinear dynamics, and brain–computer interfaces.</p>
+    <p>I am a final-year MEng student in Biomedical Engineering at Imperial College London.</p>
+    <p>My thesis asks whether pre-stimulus activity in human intracranial recordings improves the prediction of single-pulse evoked responses beyond simple signal continuation. I will also use an analog-circuit phantom with a known, built-in state effect to test whether the analysis recovers it.</p>
+    <p>Next, I plan to pursue a PhD in computational neuroscience and nonlinear dynamics at the University of Tokyo.</p>
+    <p class="lead-in">I am interested in three connected directions:</p>
+    <ul class="dirs">
+      <li>Individual brain models built with statistical physics and phase–amplitude reduction</li>
+      <li>Altered neural dynamics in schizophrenia</li>
+      <li>State-aware brain–computer interfaces</li>
+    </ul>
+    <!-- ===== Animated figure (code at bottom of file; no need to edit) ===== -->
+    <figure class="dyn">
+      <canvas id="pp" role="img" aria-label="Animation: states of a Stuart–Landau oscillator on a limit cycle are kicked by periodic pulses and relax back; right panel shows the same states over time"></canvas>
+      <figcaption><i>Stuart–Landau oscillator.</i> Left: phase plane, dashed line is the limit cycle. Right: x(t) for three of the states. Each pulse (red line) kicks every state off the cycle; each returns with a shifted phase. Illustration only.</figcaption>
+    </figure>
+
+    <!-- ===== Publications: copy one <div class="paper"> block to add a paper ===== -->
+    <h2>Publications &amp; preprints</h2>
+    <div>
+      <div class="paper">
+        <svg class="fig" viewBox="0 0 120 90" aria-hidden="true"><rect x="10" y="18" width="58" height="56" fill="var(--line)"></rect><path d="M10 50 q6-8 12 0 t12 0 t12 0 t12 0 t10 0 l3-28 l3 44 l3-16 q10 18 22 4 t22-4" fill="none" stroke="var(--fg)" stroke-width="1.6"></path><line x1="68" y1="12" x2="68" y2="80" stroke="var(--accent)" stroke-width="1.2"></line></svg>
+        <div>
+          <div class="t">State or Continuation? A Paired No-Stimulation Pseudo-Event Control for Pre-Stimulus Prediction of Single-Pulse Evoked Responses</div>
+          <div class="a"><b>R. Pan</b></div>
+          <div class="v"><span class="tag">In preparation</span>Imperial College London.</div>
+        </div>
+      </div>
+      <div class="paper">
+        <svg class="fig" viewBox="0 0 120 90" aria-hidden="true"><g fill="var(--line)"><rect x="18" y="20" width="16" height="16" rx="2"></rect><rect x="52" y="20" width="16" height="16" rx="2"></rect><rect x="86" y="20" width="16" height="16" rx="2"></rect><rect x="18" y="54" width="16" height="16" rx="2"></rect><rect x="86" y="54" width="16" height="16" rx="2"></rect></g><rect x="52" y="54" width="16" height="16" rx="2" fill="var(--accent)"></rect></svg>
+        <div>
+          <div class="t">Target Selection with a Disappearing-Stimulus Mixed-Reality P300 Interface</div>
+          <div class="a"><b>R. Pan</b> et al.</div>
+          <div class="v"><span class="tag">In preparation</span>UTSIP 2025, Kotani Laboratory, UTokyo.</div>
+        </div>
+      </div>
+      <div class="paper">
+        <svg class="fig" viewBox="0 0 120 90" aria-hidden="true"><circle cx="45" cy="45" r="20" fill="none" stroke="var(--muted)" stroke-width="1.4"></circle><circle cx="78" cy="40" r="7" fill="var(--line)"></circle><circle cx="86" cy="56" r="5" fill="var(--line)"></circle><circle cx="70" cy="58" r="4" fill="var(--line)"></circle></svg>
+        <div>
+          <div class="t">Blood-testis barrier-crossing extracellular vesicles for asthenozoospermia therapy via synergistic ATP replenishment and ferroptosis suppression</div>
+          <div class="a">X. Yu, …, <b>R. Pan</b>, …, F. Sun</div>
+          <div class="v"><i>Biomaterials</i> 327, 123777 (2026)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Research experience ===== -->
+    <h2>Research experience</h2>
+    <dl class="cv">
+      <dt>2026 – 2027</dt><dd><b>MEng thesis</b>, Imperial College London<br><span class="sub">Pre-stimulus state and single-pulse evoked responses in human intracranial EEG. Preregistered study, with a no-stimulation control designed to separate genuine state effects from ongoing signal trends.</span></dd>
+      <dt>2025</dt><dd><b>UTSIP Research Fellow</b>, Kotani Laboratory, The University of Tokyo<br><span class="sub">Mixed-reality P300 brain–computer interface for target selection, prototyped for assistive wheelchair navigation.</span></dd>
+      <dt>2024</dt><dd><b>Visiting Research Student</b>, Zhejiang University School of Medicine<br><span class="sub">Quantitative sperm-motility analysis for an extracellular-vesicle therapy study (published in <i>Biomaterials</i>).</span></dd>
+    </dl>
+
+    <!-- ===== Education ===== -->
+    <h2>Education</h2>
+    <dl class="cv">
+      <dt>2023 – 2027</dt><dd>MEng Biomedical Engineering, Imperial College London</dd>
+    </dl>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  const cv=document.getElementById('pp'); if(!cv) return;
+  const ctx=cv.getContext('2d');
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const css=getComputedStyle(document.documentElement);
+  const C={acc:css.getPropertyValue('--accent').trim()||'#8a2b2b',fg:css.getPropertyValue('--fg').trim()||'#1e2430',mut:css.getPropertyValue('--muted').trim()||'#646b78',line:css.getPropertyValue('--line').trim()||'#e3e2dc'};
+  let W=0,H=0,dpr=1;
+  function size(){const r=cv.getBoundingClientRect();if(!r.width||!r.height)return false;dpr=Math.min(window.devicePixelRatio||1,2);if(r.width!==W||r.height!==H){W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);}return true;}
+  // dz/dt = (1 + i w) z - |z|^2 z ; limit cycle r = 1
+  const w=1.6, dt=0.012, N=24, KICK=200, HIST=420, PICK=[0,8,16];
+  let pts=[], f=0, pulses=[];
+  for(let k=0;k<N;k++){const a=k/N*Math.PI*2;pts.push({x:Math.cos(a),y:Math.sin(a),trail:[],hist:[]});}
+  function step(p){const r2=p.x*p.x+p.y*p.y;const dx=(1-r2)*p.x-w*p.y,dy=(1-r2)*p.y+w*p.x;p.x+=dx*dt;p.y+=dy*dt;}
+  function advance(){
+    f++;
+    if(f%KICK===0){for(const p of pts)p.x+=0.9;pulses.push(f);}
+    pulses=pulses.filter(q=>f-q<HIST);
+    for(const p of pts){step(p);step(p);p.trail.push([p.x,p.y]);if(p.trail.length>70)p.trail.shift();p.hist.push(p.x);if(p.hist.length>HIST)p.hist.shift();}
+  }
+  function draw(){
+    if(!size())return;
+    ctx.clearRect(0,0,W,H);
+    const side=Math.min(H,W*0.42), s=side/4.4, cx=side/2, cy=H/2;
+    // phase plane
+    ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx,cy-side/2+6);ctx.lineTo(cx,cy+side/2-6);ctx.moveTo(6,cy);ctx.lineTo(side-6,cy);ctx.stroke();
+    ctx.setLineDash([3,4]);ctx.strokeStyle=C.mut;ctx.beginPath();ctx.arc(cx,cy,s,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+    for(const p of pts){
+      ctx.strokeStyle=C.acc;ctx.globalAlpha=.35;ctx.lineWidth=1.1;ctx.beginPath();
+      p.trail.forEach((q,i)=>{const X=cx+q[0]*s,Y=cy-q[1]*s;i?ctx.lineTo(X,Y):ctx.moveTo(X,Y);});ctx.stroke();ctx.globalAlpha=1;
+      ctx.fillStyle=C.acc;ctx.beginPath();ctx.arc(cx+p.x*s,cy-p.y*s,2.3,0,Math.PI*2);ctx.fill();
+    }
+    // time series
+    const x0=side+28, x1=W-4, tw=x1-x0; if(tw<60)return;
+    const rows=PICK.length, rh=(H-12)/rows;
+    for(const q of pulses){const X=x1-(f-q)/HIST*tw;ctx.strokeStyle=C.acc;ctx.globalAlpha=.6;ctx.beginPath();ctx.moveTo(X,4);ctx.lineTo(X,H-4);ctx.stroke();ctx.globalAlpha=1;}
+    PICK.forEach((k,j)=>{
+      const h=pts[k].hist, yc=6+rh*(j+.5), amp=rh*0.26;
+      ctx.strokeStyle=C.line;ctx.beginPath();ctx.moveTo(x0,yc);ctx.lineTo(x1,yc);ctx.stroke();
+      ctx.strokeStyle=C.fg;ctx.lineWidth=1.3;ctx.beginPath();
+      h.forEach((v,i)=>{const X=x1-(h.length-1-i)/HIST*tw,Y=yc-v*amp;i?ctx.lineTo(X,Y):ctx.moveTo(X,Y);});ctx.stroke();
+    });
+  }
+  // warm up so the first frame already shows a kick relaxing
+  for(let i=0;i<HIST+KICK*0.15;i++)advance();
+  draw();
+  if('ResizeObserver' in window)new ResizeObserver(draw).observe(cv);else window.addEventListener('resize',draw);
+  if(!reduce){(function loop(){advance();draw();requestAnimationFrame(loop);})();}
+})();
+</script>
+
+</body>
+</html>
